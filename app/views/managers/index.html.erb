@@ -1,0 +1,25 @@
+<h1>Managers</h1>
+
+<%= link_to 'New Manager', new_manager_path %>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Team</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @managers.each do |manager| %>
+      <tr>
+        <td><%= manager.user.display_name %></td>
+        <td><%= manager.team.display_name %></td>
+        <td><%= link_to 'Show', manager %></td>
+        <td><%= link_to 'Edit', edit_manager_path(manager) %></td>
+        <td><%= link_to 'Destroy', manager, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+<h1>User</h1>
 
 <p>
   <strong>Username:</strong>
@@ -22,3 +22,20 @@
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
+
+<h2>Teams:</h2>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th colspan="2"></th>
+  </tr>
+
+  <% @user.teams.each do |team| %>
+    <tr>
+      <td><%= team.display_name %></td>
+      <td><%= button_to 'Show', team, method: :get %></td>
+      <td><%= button_to 'Edit', edit_team_path(team), method: :get %></td>
+    </tr>
+  <% end %>
+</table>

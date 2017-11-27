@@ -1,0 +1,31 @@
+<%= form_with(model: coach, local: true) do |form| %>
+  <% if coach.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(coach.errors.count, "error") %> prohibited this coach from being saved:</h2>
+
+      <ul>
+      <% coach.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :user %><br>
+    <%= form.collection_select :user_id, @users, :id, :display_name,
+      :include_blank => true,
+      :selected => @coach.user&.id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :team %><br>
+    <%= form.collection_select :team_id, @teams, :id, :display_name,
+      :include_blank => true,
+      :selected => @coach.team&.id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

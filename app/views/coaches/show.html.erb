@@ -1,0 +1,14 @@
+<h1>Coach</h1>
+
+<p>
+  <strong>User:</strong>
+  <%= @coach.user.display_name %>
+</p>
+
+<p>
+  <strong>Team:</strong>
+  <%= @coach.team.display_name %>
+</p>
+
+<%= link_to 'Edit', edit_coach_path(@coach) %> |
+<%= link_to 'Back', coaches_path %>

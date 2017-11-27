@@ -1,0 +1,60 @@
+<h1>Team</h1>
+
+<p>
+  <strong>Name:</strong>
+  <%= @team.name %>
+</p>
+
+<%= link_to 'Edit', edit_team_path(@team) %> |
+<%= link_to 'Back', teams_path %>
+
+<h2>Players:</h2>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th colspan="2"></th>
+  </tr>
+
+  <% @team.players.each do |player| %>
+    <tr>
+      <td><%= player.user.display_name %></td>
+      <td><%= button_to 'Show', player, method: :get %></td>
+      <td><%= button_to 'Edit', edit_player_path(player), method: :get %></td>
+    </tr>
+  <% end %>
+</table>
+
+<h2>Coaches:</h2>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th colspan="2"></th>
+  </tr>
+
+  <% @team.coaches.each do |coach| %>
+    <tr>
+      <td><%= coach.user.display_name %></td>
+      <td><%= button_to 'Show', coach, method: :get %></td>
+      <td><%= button_to 'Edit', edit_coach_path(coach), method: :get %></td>
+    </tr>
+  <% end %>
+</table>
+
+<h2>Managers:</h2>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th colspan="2"></th>
+  </tr>
+
+  <% @team.managers.each do |manager| %>
+    <tr>
+      <td><%= manager.user.display_name %></td>
+      <td><%= button_to 'Show', manager, method: :get %></td>
+      <td><%= button_to 'Edit', edit_manager_path(manager), method: :get %></td>
+    </tr>
+  <% end %>
+</table>
